@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://toolradar-eqk.pages.dev/sitemap.xml
