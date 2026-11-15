@@ -34,208 +34,59 @@ header { padding: 1.5rem 0; border-bottom: 1px solid var(--border); background: 
 .search-input:focus { outline: none; border-color: var(--primary); }
 .filters { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
 .filter-chip { padding: 0.5rem 1.25rem; border-radius: 999px; background: var(--card-bg); border: 1px solid var(--border); cursor: pointer; font-size: 0.875rem; transition: 0.2s; white-space: nowrap; }
-.filter-chip.active { background: var(--primary); border-color: var(--primary); }
-.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; width: 100%; }
-.tool-card { background: var(--card-bg); border-radius: 1rem; padding: 1.5rem; border: 1px solid var(--border); transition: transform 0.2s, border-color 0.2s; position: relative; display: flex; flex-direction: column; overflow-wrap: break-word; }
-.tool-card:hover { transform: translateY(-4px); border-color: var(--primary); }
-.tool-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
-.tool-category { font-size: 0.75rem; color: var(--primary); font-weight: 600; text-transform: uppercase; }
-.tool-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
-.tool-desc { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem; flex-grow: 1; }
-.tool-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
-.btn-link { font-size: 0.875rem; font-weight: 600; color: var(--primary); }
-.external-icon { display: inline-block; width: 12px; height: 12px; margin-left: 4px; vertical-align: middle; }
-.favorite-btn { background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 1.25rem; }
-.favorite-btn.active { color: var(--accent); }
-.compare-bar { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--primary); padding: 1rem 1.5rem; border-radius: 999px; display: none; align-items: center; gap: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 1000; width: auto; max-width: 90vw; }
-.compare-btn { background: white; color: var(--primary); border: none; padding: 0.5rem 1rem; border-radius: 999px; font-weight: 700; cursor: pointer; white-space: nowrap; }
-.footer { border-top: 1px solid var(--border); padding: 4rem 0; color: var(--text-muted); font-size: 0.875rem; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
-.footer h4 { color: white; margin-bottom: 1rem; }
-.footer ul { list-style: none; }
-.footer li { margin-bottom: 0.5rem; }
-.affiliate-note { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.75rem; text-align: center; }
-@media (max-width: 768px) {
-.footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-.hero h1 { font-size: 2rem; }
-.hero { padding: 2rem 0; }
-.tool-grid { grid-template-columns: 1fr; }
-.compare-bar { bottom: 1rem; padding: 0.75rem 1rem; font-size: 0.8rem; }
-}
 </style>
 </head>
 <body>
 <header>
 <div class="container header-content">
-<div class="logo">TOOLRADAR</div>
-<nav id="fav-count">Избранное (0)</nav>
+<a href="/" class="logo">ToolRadar</a>
+<nav>
+<a href="#" class="text-white mr-4">Сервисы</a>
+<a href="#" class="text-white">Категории</a>
+</nav>
 </div>
 </header>
-<main class="container">
-<section class="hero">
-<h1>Все инструменты в одном месте</h1>
-<p>Честные обзоры и подборки лучших цифровых сервисов для работы и творчества.</p>
+<main>
+<section class="hero container">
+<h1>ToolRadar — Ваш путеводитель по лучшим нейросетям и сервисам</h1>
+<p>Откройте для себя лучшие инструменты на базе ИИ, сервисы для дизайна, маркетинга и разработки. Сравнение, обзоры и избранные решения в одном месте.</p>
 <div class="search-container">
-<input type="text" id="searchInput" class="search-input" placeholder="Поиск инструментов (напр. ChatGPT, Figma...)">
+<input type="text" class="search-input" placeholder="Найдите нужный сервис...">
+</div>
+<div class="filters">
+<div class="filter-chip">#AI</div>
+<div class="filter-chip">#Дизайн</div>
+<div class="filter-chip">#Маркетинг</div>
+<div class="filter-chip">#Разработка</div>
+<div class="filter-chip">#Образование</div>
+<div class="filter-chip">#Фото</div>
+<div class="filter-chip">#Видео</div>
 </div>
 </section>
-<div class="filters" id="filters">
-<div class="filter-chip active" data-category="all">Все</div>
-<div class="filter-chip" data-category="AI">ИИ</div>
-<div class="filter-chip" data-category="Design">Дизайн</div>
-<div class="filter-chip" data-category="Productivity">Продуктивность</div>
-<div class="filter-chip" data-category="Dev">Разработка</div>
-<div class="filter-chip" data-category="Marketing">Маркетинг</div>
+<section class="container">
+<!-- Карточки сервисов будут здесь -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Пример карточки -->
+<div class="card bg-card-bg rounded-lg shadow-lg overflow-hidden border border-border">
+<img src="placeholder.jpg" alt="Service Image" class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Название Сервиса</h3>
+<p class="text-muted text-sm mb-4">Краткое описание сервиса, его основные функции и преимущества.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="tag">#AI</span>
+<span class="tag">#Маркетинг</span>
 </div>
-<div class="tool-grid" id="toolGrid"></div>
+<a href="#" class="inline-block bg-primary hover:bg-primary-hover text-white font-bold py-2 px-4 rounded-lg transition duration-200">Перейти на сайт</a>
+</div>
+</div>
+<!-- Больше карточек -->
+</div>
+</section>
 </main>
-<div class="compare-bar" id="compareBar">
-<span id="compareText">Выбрано 0</span>
-<button class="compare-btn" onclick="openCompare()">Сравнить</button>
-<button style="background:none; border:none; color:white; cursor:pointer;" onclick="clearCompare()">×</button>
-</div>
-<footer class="footer">
-<div class="container">
-<div class="footer-grid">
-<div>
-<h4>ToolRadar</h4>
-<p>Мы помогаем ориентироваться в мире современных технологий и выбирать лучшие решения для ваших задач.</p>
-<p style="margin-top:1rem;">Связь: <a href="mailto:vi441042@gmail.com">vi441042@gmail.com</a></p>
-</div>
-<div>
-<h4>Навигация</h4>
-<ul>
-<li><a href="/">Главная</a></li>
-<li><a href="https://github.com/vi441042-droid/toolradar" target="_blank" rel="noopener noreferrer">GitHub <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a></li>
-</ul>
-</div>
-<div>
-<h4>Юридическая инфо</h4>
-<ul>
-<li><a href="privacy.html">Политика конфиденциальности</a></li>
-<li><a href="terms.html">Условия использования</a></li>
-</ul>
-</div>
-</div>
-<div class="affiliate-note">
-Раскрытие информации об аффилированных ссылках: некоторые внешние ссылки могут содержать партнерские коды. Это не влияет на наши редакционные оценки.
-</div>
+<footer>
+<div class="container text-center py-8 text-muted border-t border-border">
+<p>&copy; 2024 ToolRadar. Все права защищены.</p>
 </div>
 </footer>
-<script>
-const tools = [
-{ id: 1, name: "ChatGPT", cat: "AI", desc: "Самый популярный чат-бот на базе ИИ от OpenAI для любых текстовых задач.", url: "https://chatgpt.com", sponsored: false },
-{ id: 2, name: "Midjourney", cat: "AI", desc: "Инструмент для генерации детализированных изображений по текстовым описаниям.", url: "https://www.midjourney.com", sponsored: false },
-{ id: 3, name: "Claude", cat: "AI", desc: "Умный помощник от Anthropic с фокусом на безопасность и качество кода.", url: "https://claude.ai", sponsored: false },
-{ id: 4, name: "Figma", cat: "Design", desc: "Профессиональный инструмент для дизайна интерфейсов и прототипирования.", url: "https://www.figma.com", sponsored: false },
-{ id: 5, name: "Canva", cat: "Design", desc: "Простой графический редактор для создания презентаций и постов в соцсети.", url: "https://www.canva.com", sponsored: false },
-{ id: 6, name: "Notion", cat: "Productivity", desc: "Универсальное рабочее пространство для заметок, баз данных и управления проектами.", url: "https://www.notion.so", sponsored: false },
-{ id: 7, name: "Trello", cat: "Productivity", desc: "Популярный таск-менеджер на основе канбан-досок для командной работы.", url: "https://trello.com", sponsored: false },
-{ id: 8, name: "VS Code", cat: "Dev", desc: "Самый востребованный редактор кода от Microsoft с огромным количеством плагинов.", url: "https://code.visualstudio.com", sponsored: false },
-{ id: 9, name: "GitHub", cat: "Dev", desc: "Крупнейший сервис для хостинга IT-проектов и совместной разработки.", url: "https://github.com", sponsored: false },
-{ id: 10, name: "Mailchimp", cat: "Marketing", desc: "Платформа для автоматизации email-рассылок и маркетинга.", url: "https://mailchimp.com", sponsored: false },
-{ id: 11, name: "HubSpot", cat: "Marketing", desc: "Комплексная CRM-платформа для управления продажами и маркетингом.", url: "https://www.hubspot.com", sponsored: false },
-{ id: 12, name: "Perplexity", cat: "AI", desc: "ИИ-поисковик, предоставляющий ответы со ссылками на источники.", url: "https://www.perplexity.ai", sponsored: false },
-{ id: 13, name: "Jasper", cat: "AI", desc: "Специализированная ИИ-платформа для создания контента и копирайтинга.", url: "https://www.jasper.ai", sponsored: false },
-{ id: 14, name: "Adobe Express", cat: "Design", desc: "Облачный сервис от Adobe для быстрого дизайна и редактирования фото.", url: "https://www.adobe.com/express/", sponsored: false },
-{ id: 15, name: "Slack", cat: "Productivity", desc: "Мессенджер для корпоративного общения и интеграции рабочих процессов.", url: "https://slack.com", sponsored: false },
-{ id: 16, name: "Vercel", cat: "Dev", desc: "Платформа для фронтенд-разработчиков, оптимизированная под Next.js.", url: "https://vercel.com", sponsored: false },
-{ id: 17, name: "Buffer", cat: "Marketing", desc: "Инструмент для планирования постов и аналитики в социальных сетях.", url: "https://buffer.com", sponsored: false },
-{ id: 18, name: "Grammarly", cat: "AI", desc: "ИИ-ассистент для проверки грамматики и улучшения стиля письма.", url: "https://www.grammarly.com", sponsored: false }
-];
-let favorites = JSON.parse(localStorage.getItem('favs')) || [];
-let comparing = [];
-function renderTools(filter = 'all', search = '') {
-const grid = document.getElementById('toolGrid');
-grid.innerHTML = '';
-const filtered = tools.filter(t => {
-const matchesCat = filter === 'all' || t.cat === filter;
-const matchesSearch = t.name.toLowerCase().includes(search.toLowerCase()) ||
-      t.desc.toLowerCase().includes(search.toLowerCase());
-return matchesCat && matchesSearch;
-});
-filtered.forEach(t => {
-const card = document.createElement('div');
-card.className = 'tool-card';
-const isFav = favorites.includes(t.id);
-const isComp = comparing.includes(t.id);
-const relAttr = t.sponsored ? 'nofollow sponsored' : 'noopener noreferrer';
-card.innerHTML = (
-`
-<div class="tool-header">
-<span class="tool-category">${t.cat}</span>
-<button class="favorite-btn ${isFav ? 'active' : ''}" onclick="toggleFav(${t.id})" aria-label="В избранное">★</button>
-</div>
-<h3 class="tool-name">${t.name}</h3>
-<p class="tool-desc">${t.desc}</p>
-<div class="tool-footer">
-<a href="${t.url}" target="_blank" rel="${relAttr}" class="btn-link">
-На сайт <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-</a>
-<label style="font-size:0.75rem; color:var(--text-muted); cursor:pointer; display:flex; align-items:center; gap:4px;">
-<input type="checkbox" ${isComp ? 'checked' : ''} onchange="toggleCompare(${t.id})"> Сравнить
-</label>
-</div>
-`
-);
-grid.appendChild(card);
-});
-updateFavCount();
-}
-function toggleFav(id) {
-if (favorites.includes(id)) {
-favorites = favorites.filter(f => f !== id);
-} else {
-favorites.push(id);
-}
-localStorage.setItem('favs', JSON.stringify(favorites));
-renderTools(document.querySelector('.filter-chip.active').dataset.category, document.getElementById('searchInput').value);
-}
-function updateFavCount() {
-document.getElementById('fav-count').innerText = `Избранное (${favorites.length})`;
-}
-function toggleCompare(id) {
-if (comparing.includes(id)) {
-comparing = comparing.filter(c => c !== id);
-} else {
-if (comparing.length >= 3) {
-alert('Можно сравнить не более 3 инструментов одновременно.');
-renderTools(document.querySelector('.filter-chip.active').dataset.category, document.getElementById('searchInput').value);
-return;
-}
-comparing.push(id);
-}
-updateCompareBar();
-}
-function updateCompareBar() {
-const bar = document.getElementById('compareBar');
-if (comparing.length > 0) {
-bar.style.display = 'flex';
-document.getElementById('compareText').innerText = `${comparing.length} выбрано`;
-} else {
-bar.style.display = 'none';
-}
-}
-function openCompare() {
-const selectedTools = tools.filter(t => comparing.includes(t.id));
-alert('Сравнение инструментов:\n\n' + selectedTools.map(t => `${t.name} (${t.cat}): ${t.desc}`).join('\n\n'));
-}
-function clearCompare() {
-comparing = [];
-updateCompareBar();
-renderTools(document.querySelector('.filter-chip.active').dataset.category, document.getElementById('searchInput').value);
-}
-document.getElementById('searchInput').addEventListener('input', (e) => {
-renderTools(document.querySelector('.filter-chip.active').dataset.category, e.target.value);
-});
-document.getElementById('filters').addEventListener('click', (e) => {
-if (e.target.classList.contains('filter-chip')) {
-document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-e.target.classList.add('active');
-renderTools(e.target.dataset.category, document.getElementById('searchInput').value);
-}
-});
-renderTools();
-</script>
 </body>
 </html>
