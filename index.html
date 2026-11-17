@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ToolRadar — каталог цифровых инструментов и нейросетей</title>
+<title>ToolRadar — каталог AI-инструментов и цифровых сервисов</title>
 <meta name="description" content="Находите цифровые инструменты, нейросети, сервисы для дизайна, продуктивности и разработки. Поиск, категории, избранное и сравнение.">
 <meta name="robots" content="index,follow"><link rel="canonical" href="https://toolradar-eqk.pages.dev/">
 <meta name="theme-color" content="#0b1020">
@@ -22,13 +22,21 @@ a{color:inherit}button,input{font:inherit}button{cursor:pointer}a:focus-visible,
 footer{margin-top:70px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:.88rem}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footlinks{display:flex;gap:16px;flex-wrap:wrap}.foot a{color:#c5cce0;text-decoration:none}.foot a:hover{color:white}
 @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{gap:12px}}@media(max-width:580px){.wrap{width:min(100% - 24px,1160px)}.top{align-items:flex-start}.nav{gap:10px;font-size:.8rem;flex-wrap:wrap;justify-content:flex-end}.hero{padding:43px 0 28px}.hero h1{font-size:2.55rem}.searchbox{gap:8px}.searchbox button{padding:10px}.stats{gap:12px;flex-wrap:wrap}.grid{grid-template-columns:1fr}.card{min-height:165px}.info{grid-template-columns:1fr}.compare{align-items:flex-start;flex-direction:column}.compare-actions{width:100%}.compare-actions button{flex:1}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-</style></head>
+.category-hub{margin:36px 0;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:#111a30}.category-hub h2{margin:0 0 8px}.category-hub p{color:var(--muted)}.category-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.category-links a{display:block;padding:14px;border:1px solid var(--line);border-radius:12px;color:var(--text);text-decoration:none;background:rgba(255,255,255,.025)}.category-links a:hover{border-color:var(--accent2)}</style></head>
 <body><header class="wrap top"><a class="brand" href="/" aria-label="ToolRadar — главная"><span class="logo">TR</span>ToolRadar</a><nav class="nav" aria-label="Основная навигация"><a href="#catalog">Каталог</a><a href="guides.html">Гайды</a><a href="about.html">О проекте</a></nav></header>
 <main class="wrap"><section class="hero"><span class="eyebrow">✦ Навигатор по цифровым инструментам</span><h1>Найди инструмент.<br><span class="grad">Ускорь свою работу.</span></h1><p>Подборка сервисов для творчества, учёбы, разработки и бизнеса. Ищи по названию, изучай категории и собирай собственный список.</p>
 <div class="searchbox"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Например, нейросеть для текста или дизайн…" aria-label="Поиск по инструментам"><button id="clearSearch" type="button">Очистить</button></div>
 <div class="stats"><span><b id="toolCount">0</b> инструментов</span><span><b>8</b> направлений</span><span>Без регистрации</span></div></section>
 <section id="catalog"><div class="section-head"><div><div class="muted" style="font-size:.8rem">ИССЛЕДУЙ КАТАЛОГ</div><h2>Каталог инструментов</h2></div><div class="muted" id="resultCount" aria-live="polite"></div></div><div class="filters" id="filters" aria-label="Фильтр по категориям"></div><div class="grid" id="grid"></div></section>
 <div class="compare" id="compareBar" hidden><div><strong>Сравнение</strong><div class="compare-items" id="compareItems"></div></div><div class="compare-actions"><button class="secondary" id="clearCompare">Очистить</button><button class="primary" id="showCompare">Сравнить</button></div></div>
+<section class="category-hub" aria-labelledby="category-title">
+<h2 id="category-title">Категории инструментов</h2>
+<p>Выберите направление и изучите отдельную подборку сервисов.</p>
+<div class="category-links">
+<a href="ai-text.html">AI для текста</a><a href="ai-design.html">AI и инструменты для дизайна</a>
+<a href="video-audio.html">Видео и аудио</a><a href="development.html">Разработка</a>
+<a href="productivity.html">Продуктивность</a><a href="learning.html">Учёба</a>
+</div></section>
 <section class="info"><article><h2>Как формируется каталог</h2><p>Мы отбираем известные цифровые сервисы по назначению, понятности продукта и практической применимости. Описания редакционные и не являются гарантией качества или рекомендацией к покупке. Состав каталога будет постепенно обновляться.</p></article><article><h2>Цены, функции и приватность</h2><p>Условия тарифов и возможности сервисов меняются. Перед регистрацией проверяйте актуальные цены, ограничения, возрастные требования и правила обработки данных на официальном сайте каждого поставщика.</p></article></section>
 </main><footer><div class="wrap foot"><div>© <span id="year"></span> ToolRadar. Независимый каталог цифровых инструментов.<br><span>Сейчас каталог содержит редакционные ссылки. Если появятся партнёрские ссылки, они будут явно обозначены.</span></div><div class="footlinks"><a href="about.html">О проекте</a><a href="guides.html">Гайды</a><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a><a href="mailto:vi441042@gmail.com">Контакт</a></div></div></footer>
 <dialog id="compareDialog" style="max-width:760px;width:calc(100% - 28px);border:1px solid #485477;border-radius:18px;background:#111a30;color:#eef3ff;padding:24px"><form method="dialog"><button class="secondary" style="float:right">Закрыть</button></form><h2>Сравнение инструментов</h2><div id="compareTable"></div></dialog>
